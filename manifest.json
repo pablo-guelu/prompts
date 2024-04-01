@@ -1,0 +1,38 @@
+{
+    "name": "Prompts",
+    "version": "0.1.0",
+    "description": "Saving common prompts to use on chatGPT or other applications",
+    "icons": {
+        "16": "src/assets/picon16.png",
+        "32": "src/assets/picon32.png",
+        "48": "src/assets/picon48.png",
+        "128": "src/assets/picon128.png"
+      },
+    "permissions": [
+        "storage",
+        "tabs",
+        "contextMenus"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "src/background.ts",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "src/content.ts"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "index.html"
+    },
+
+    "manifest_version": 3
+}
